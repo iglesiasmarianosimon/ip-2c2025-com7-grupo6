@@ -18,8 +18,12 @@ def init(vals):
 
 def step():
     global items, n, i, j, min_idx, fase
-    if i>=n-1:
+    if i>=n-1: 
         return {"done": True}
+#Si ya esta todo ordenado, devolvemos "done", True para terminar el algoritmo
+
+    
+#Cambiamos a fase "buscar", reccoremos toda la lista para ver que numero es el mas pequeño
     if fase== "buscar":
         if j<n:
             if items[j]<items[min_idx]:
@@ -27,13 +31,16 @@ def step():
             j=j+1
             return {"a": min_idx, "b": j-1, "swap": False, "done": False}
         fase="swap"
-        
-    if fase== "swap":
+
+#Cambiamos a fase "swap", una vez encontrado el valor mas chico, esta fase se encarga de intercambiar el mas chico actual para asi ponerlo primero
+    
+    if fase== "swap": 
         swap=False
         if min_idx !=i:
             items[i], items[min_idx] = items[min_idx], items[i]
             swap=True
 
+#Después de cambiar los valores, el algoritmo se prepara para seguir con el próximo movimiento (si es que todavia queda por ordenar), en simples palabras prepara todo para seguir con el siguiente valor  
         a=i
         b=min_idx
       
