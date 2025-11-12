@@ -1,5 +1,5 @@
 # Contrato: init(vals), step() -> {"a": int, "b": int, "swap": bool, "done": bool}
-
+import time
 items = []
 n = 0
 i = 0          # cabeza de la parte no ordenada
@@ -11,21 +11,28 @@ fase = "buscar"  # "buscar" | "swap"
 vecesQueCompara=0
 vecesQueCambia=0
 
+#MEDIDOR DE TIEMPO
+inicioTiempo=0 
+finTiempo=0
 
 def init(vals):
-    global items, n, i, j, min_idx, fase, vecesQueCompara, vecesQueCambia
+    global items, n, i, j, min_idx, fase, vecesQueCompara, vecesQueCambia, inicioTiempo, finTiempo
     items = list(vals)
     n = len(items)
     i = 0
     j = i + 1
     min_idx = i
     fase = "buscar"
+    inicioTiempo=time.time() #Guadra la hora en el que el algoritmo empezo (Cuenta los segundos desde el 1 de enero de 1970 hasta ahora)
 
 def step():
-    global items, n, i, j, min_idx, fase
+    global items, n, i, j, min_idx, fase, inicioTiempo, finTiempo
     if i>=n-1: 
         print("Selection comparo:", vecesQueCompara, "y cambio", vecesQueCambia) #Luego de ordenar todo mostramos cuantas veces comparo y cambio
+        finTiempo=time.time() - inicioTiempo #Guarda el tiempo en el que termina.
+        print("Tardo", finTiempo, "segundos") #Al igual que las metricsa para ver el resultado de cuanto tardo este algoritmo en completar el visauliazador, presionamos f12 y "console"
         return {"done": True}
+        
 #Si ya esta todo ordenado, devolvemos "done", True para terminar el algoritmo
 #Para ver el resultado de las metricas vamos al visualizador y pulsamos F12, alli se abrira una pequeña pestaña, donde nos aparecera una opcion que dice "Console", alli podemos ver los resultados
     
