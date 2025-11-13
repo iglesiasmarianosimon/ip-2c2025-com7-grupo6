@@ -16,14 +16,10 @@ def step():
     
     global items, n, i, j
 
-    if i >= n:
-        return {"done": True}
-# Si por casualidad hay un solo número y descartar números menores a uno (si existiera)
-
     if j == None:
         j = i
         return {"a": j - 1 , "b": j, "swap": False, "done": False}
-# Si el while no entra, pasamos al siguiente elemento
+# Este elemento está para iniciar la búsqueda.
 
     while j > 0 and items[j - 1] > items[j]:
         items[j - 1], items[j] = items[j], items[j - 1]
