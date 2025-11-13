@@ -46,5 +46,6 @@ Ese coeficiente (según lo visto) es 1.3
 Al repetirse, el selector se vuelve a multiplicar por el coeficiente.
 
 """
+#dificultad: nuevo bucle que no termina
 
 
