@@ -5,31 +5,34 @@ n = 0
 dist = 0
 cof = 1.3
 i = 0
+j=0
+huboswap=True
 
 def init(vals):
-    global items, n, dist, cof, i, final
+    global items, n, dist, cof, i, j
     items = list(vals)
     n = len(items)
     dist = n
     i = 0
 
 def step():
-    global items, n, dist, cof, i, final
+    global items, n, dist, cof, i, huboswap
 
-   # para detener el bucle
-    if i >= n - 1:
-        return {"done": True}
-    a = j
-    b = j + 1
-    swap = False
+    # para detener el bucle
+    if i >= n - dist:
 
-    if i + dist >= n:
+        # Si dist == 1 y NO hubo swaps es porque la lista ya está ordenada
+        if dist == 1 and not huboswap:
+            return {"a": None, "b": None, "swap": False, "done": True}
+        
         dist = int(dist / cof)     # Reducimos distancia (dist)
         if dist < 1: # prueba para detectar si está ordenado
             dist = 1
         i = 0
-        return {"a": None, "b": None, "swap": False, "done": False}
+        huboswap = False
 
+        return {"a": None, "b": None, "swap": False, "done": False}
+    
     a = i
     b = i + dist
     swap = False
@@ -37,6 +40,7 @@ def step():
     if items[a] > items[b]:
         items[a], items[b] = items[b], items[a]
         swap = True
+        huboswap = True
 
     i += 1
     return {"a": a, "b": b, "swap": swap, "done": False}
