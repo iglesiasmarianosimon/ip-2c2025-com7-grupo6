@@ -16,7 +16,13 @@ def init(vals):
 def step():
     global items, n, dist, cof, i, final
 
-    # en caso de llegar al final
+   # para detener el bucle
+    if i >= n - 1:
+        return {"done": True}
+    a = j
+    b = j + 1
+    swap = False
+
     if i + dist >= n:
         dist = int(dist / cof)     # Reducimos distancia (dist)
         if dist < 1: # prueba para detectar si está ordenado
@@ -46,6 +52,3 @@ Ese coeficiente (según lo visto) es 1.3
 Al repetirse, el selector se vuelve a multiplicar por el coeficiente.
 
 """
-#dificultad: nuevo bucle que no termina
-
-
