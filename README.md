@@ -1,4 +1,6 @@
-# GRUPO 6 - Comisión 7 - Trabajo práctico: Visualización de algoritmos de ordenamiento
+# GRUPO 6 - Comisión 7
+
+### TP Visualización de algoritmos de ordenamiento
 
 ## Alumnos
 - Benitez Leandro
