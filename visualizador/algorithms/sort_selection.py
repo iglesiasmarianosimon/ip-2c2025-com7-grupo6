@@ -26,7 +26,7 @@ def init(vals):
     inicioTiempo=time.time() #Guadra la hora en el que el algoritmo empezo (Cuenta los segundos desde el 1 de enero de 1970 hasta ahora)
 
 def step():
-    global items, n, i, j, min_idx, fase, inicioTiempo, finTiempo
+    global items, n, i, j, min_idx, fase, inicioTiempo, finTiempo, vecesQueCompara, vecesQueCambia
     if i>=n-1: 
         print("Selection comparo:", vecesQueCompara, "y cambio", vecesQueCambia) #Luego de ordenar todo mostramos cuantas veces comparo y cambio
         finTiempo=time.time() - inicioTiempo #Guarda el tiempo en el que termina.
